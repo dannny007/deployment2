@@ -1,1 +1,241 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
 
+:root {
+    font-size            : 62.5%;
+    --primary-dark-color : #252e46;
+    --primary-light-color: #e3ecf6;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-size  : 1.6rem;
+    font-family: "Open Sans", sans-serif;
+}
+
+header {
+    display         : flex;
+    flex-direction  : column;
+    align-items     : center;
+    background-color: var(--primary-dark-color);
+    padding         : 1rem;
+}
+
+header #logo {
+    font-size    : 2.5rem;
+    color        : var(--primary-light-color);
+    font-weight  : bold;
+    margin-bottom: 1rem;
+}
+
+header nav a {
+    color    : var(--primary-light-color);
+    font-size: 2rem;
+    margin   : 0 7px;
+}
+
+header nav a:hover {
+    border-bottom: 1px solid var(--primary-light-color);
+}
+
+
+.banner {
+    height             : 30vh;
+    background-image   : url(./christopher-gower-m_HRfLhgABo-unsplash.jpg);
+    background-size    : cover;
+    background-position: center;
+    color              : var(--primary-light-color);
+}
+
+.banner-content {
+    height               : 100%;
+    background-color     : #4b5d907f;
+    display              : grid;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows   : 20% 1fr 1fr 20%;
+}
+
+.banner-content h2 {
+    grid-area  : 2 / 2/ 3 / 3;
+    align-self : center;
+    text-shadow: 2px 2px 5px rgb(164, 162, 162);
+    font-size  : 3.5rem;
+}
+
+.banner-content p {
+    grid-area  : 3 / 2 / 4 /3;
+    text-shadow: 2px 2px 5px rgb(164, 162, 162);
+    font-size  : 2.2rem;
+}
+
+.sidebar {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    border-bottom : 1px solid rgb(200, 197, 197);
+    padding-bottom: 2rem;
+}
+
+.sidebar h2 {
+    color    : var(--primary-dark-color);
+    margin   : 2rem;
+    font-size: 2rem;
+}
+
+.sidebar ul {
+    list-style     : none;
+    display        : flex;
+    justify-content: space-evenly;
+    align-self     : stretch;
+}
+
+.sidebar ul li {
+    cursor: pointer;
+    width: fit-content;
+}
+
+.sidebar ul li:hover {
+    border-bottom: 1px solid rgb(201, 198, 198);
+}
+
+.cards>h2 {
+    text-align     : center;
+    margin         : 2rem;
+    color          : var(--primary-dark-color);
+    font-size      : 3rem;
+    text-decoration: underline;
+}
+
+.card {
+    border        : 1px solid rgb(172, 169, 169);
+    width         : 80%;
+    margin        : 1rem auto;
+    border-radius : 5px;
+    padding-bottom: 1rem;
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+
+}
+
+.card img {
+    width                  : 100%;
+    border-top-left-radius : 5px;
+    border-top-right-radius: 5px;
+}
+
+.card h2 {
+    width : 80%;
+    color : var(--primary-dark-color);
+    margin: 1rem;
+}
+
+.card p {
+    width        : 80%;
+    color        : var(--primary-dark-color);
+    margin-bottom: 1rem;
+}
+
+.card button {
+    width           : 80%;
+    background-color: var(--primary-dark-color);
+    color           : var(--primary-light-color);
+    padding         : 7px 0;
+    font-size       : 2rem;
+    border          : none;
+    border-radius   : 3px;
+}
+
+footer {
+    background-color: var(--primary-dark-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-light-color);
+    padding:0 1rem ;
+    height: 5vh;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+}
+
+footer a {
+    color: var(--primary-light-color);
+    font-size: 2rem;
+    margin: 0 0.5rem;
+}
+
+
+@media screen and (min-width:600px) {
+
+    header {
+        flex-direction  : row;
+        align-items     : center;
+        justify-content: space-between;
+    }
+    
+    main {
+        /* // banner / sidebar / cards / footer  */
+        display: grid;
+        grid-template-columns: 20% 1fr;
+        grid-template-rows: auto 1fr auto;
+        grid-template-areas: 
+            "banner banner"
+            "sidebar cards"
+            "footer footer";
+    }
+
+    .banner {
+        grid-area: banner;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        border-right: 1px solid rgb(197, 196, 196);
+
+    }
+    .sidebar ul {
+        list-style     : none;
+        display        : flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        padding-left: 1rem;
+    }
+
+    .sidebar ul li {
+        margin: 1rem 0;
+    }
+    .cards {
+        grid-area: cards;
+    }
+    footer {
+        grid-area: footer;
+    }
+
+    .cards-container {
+        display: grid;
+        /* grid-template-columns: repeat(2, 1fr); */
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+    }
+    .card {
+       width:  90%;
+    }
+
+}
+
+@media screen and (min-width:1200px) {
+    .cards-container {
+        
+        grid-template-columns: repeat(4,  1fr);
+
+    }
+}
